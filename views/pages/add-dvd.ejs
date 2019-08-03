@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+
+<div class="col" style="margin-right:50px">
+     <form action="/dvd/add/:<%= TMDB_data.id %>" method="post" class="col s12">
+        <table class="table">
+            <thead>
+                 <tr>
+                    <th style="width:8%;text-align:center">Movie ID</th>
+                    <th style="width:15%;text-align:center">Title</th>
+                    <th style="width:10%text-align:center">Genre</th>
+                    <th style="width:10%;text-align:center">Rating</th>
+                    <th style="width:10%;text-align:center;">Release Date</th>
+                    <th style="width:8%;text-align:center">Cover Art</th>
+                    <th style="width:40%;text-align:center">Overview</th>
+             </thead>
+             <tbody>
+                 <tr>
+                    <td style="width:8%;text-align:center"><%= TMDB_data.id %></td>
+                    <td style="width:15%;text-align:center"><%= TMDB_data.title %></td>
+                    <td style="width:10%;text-align:center"><%= "UNIMPLEMENTED" %></td>
+                    <td style="width:10%;text-align:center"><%= TMDB_data.vote_average %></td>
+                    <td style="width:10%;text-align:center"><%= TMDB_data.release_date %></td>
+                    <td style="width:8%;text-align:center">
+                        <img src="<%= 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+ TMDB_data.poster_path %>"
+                        alt= "<%= TMDB_data.title %>" width = 125px; height = 175px;/>
+                    </td>
+                    <td style="width:40%;"><%= TMDB_data.overview %></td>
+                 </tr>
+             </tbody>
+         </table>
+         <hr>
+         <br>
+         <div class="form-group row">
+             <label for="quantity" class="col-2 col-form-label">Watched?</label>
+             <div class="col-10">
+                 <input type="number" name="watched" min="0" max="1" value="" style="width:10%" class="form-control">
+             </div>
+         </div>
+         <div class="form-group row">
+             <label for="" class="col-2 col-form-label" style="color:#ffffff"></label>
+             <div class="col-10">
+                 <input type="submit" name="addMovie" value="Add Entry" class="btn btn-primary btn-lg">
+             </div>
+         </div>
+    </form>
+    <form action="/" method="get" class="col s12">
+        <label for="" class="col-1 col-form-label" style="color:#ffffff"></label>
+        <br /> <br/>
+        <input type="submit" name="back" value="Return Home" class="btn btn-primary btn-lg">
+    </form>
+</div>
+
+        
+<% include ../partials/footer %>
