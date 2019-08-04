@@ -1,10 +1,10 @@
 import React from "react";
-import './App.css';
+import '../App.css';
 
-const Navbar = props => (
+const NavBar = props => (
     <nav className="container" id="navBar-container">
-        
+        "NavBar"
     </nav>
 )
 
-export default Navbar;
+export default NavBar;
