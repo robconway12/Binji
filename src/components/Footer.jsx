@@ -3,7 +3,7 @@ import '../App.css';
 
 const Footer = props => (
   <div className="container" id="footer-container">
-      <p id="footer-copywrite">&#9400; Copywrite 2019  Binji</p>
+      <p id="footer-copyright">&#9400; Copyright 2019  Binji</p>
   </div>
 );
 
