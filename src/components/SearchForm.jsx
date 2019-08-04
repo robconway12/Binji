@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 class SearchForm extends Component {
   // Setting the component's initial state
   state = {
@@ -19,12 +19,21 @@ class SearchForm extends Component {
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
+      const query = encodeURI(this.state.search)
+      const apiKey = "d03fc0e64d561bfed0fdc80a54d08b43"
+      const url = "https://api.themoviedb.org/3/search/multi?api_key="+ apiKey +"&language=en-US&query="+ query +"&page=1&include_adult=false";
 
-//This is where the request goes
+          axios.get(url)
+            .then(response => {
+              let data = {
+                results: response.data,
+              };
+              console.log(data);
+              
+              this.setState(data);
+            })
+            .catch(error => console.log(error));
 
-    this.setState({
-      query: ""
-    });
   };
 
   render() {
@@ -48,7 +57,7 @@ class SearchForm extends Component {
       </div>
     </form>
     );
-  }
+  };
 }
 
 
