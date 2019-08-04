@@ -117,7 +117,7 @@ function getprograms(){
 function loadDataTMDB(progId){
     console.log("Fetching TMDB Data for progId: " + progId);
     return new Promise(function(resolve, reject){
-        TheMovieDB.movieInfo({id: progId}, function(err, result){
+        TheMovieDB.Info({id: progId}, function(err, result){
             if(err){
                 return reject(err);
             }
@@ -308,7 +308,7 @@ app.get('/title/edit/:progId', function(request, response){
 app.post('/title/edit/:progId', function(request, response){
     var query = "UPDATE programs SET";
     query += " title = '" + request.body.title + "',";
-    query += " genre = 'UNIMPLEMENTED',";
+    // query += " genre = 'UNIMPLEMENTED',";
     query += " rating = '" + request.body.rating + "',";
     query += " year = '" + request.body.release_date + "',";
     query += " watched = '" + request.body.watched + "',";
