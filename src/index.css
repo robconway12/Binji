@@ -17,6 +17,26 @@ code {
 #nav-BinjiLogo {
   color: purple;
   font-family: 'Oleo Script', cursive;
+  font-size: 2em;
+}
+
+#search {
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.btn {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  border-color: dimgray;
+  border-top-color: black;
+  border-left-color: black;
+}
+
+.btn-primary {
+  background-color: purple;
+}
+
+.btn-danger {
+  background-color: darkred;
 }
 
 body {
@@ -25,9 +45,16 @@ body {
 
 .navbar-nav{
   font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 1.5em;
 }
 
-#footer-copywrite {
+#footer-copyright {
   font-family: 'Saira Extra Condensed', sans-serif;
   color: azure;
+}
+
+th {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  color: azure;
+  font-size: 1.2em;
 }

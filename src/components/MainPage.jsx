@@ -20,7 +20,7 @@ function MainPage() {
                     <th>Release Date</th>
                     <th>Cover Art</th>
                     <th>Summary</th>
-                    <th>Delete?</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

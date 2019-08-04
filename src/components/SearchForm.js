@@ -31,7 +31,7 @@ class SearchForm extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
  <form>
-      <div className="form-group">
+      <div className="form-group ml-4">
         
         <input
           onChange={this.handleInputChange}
