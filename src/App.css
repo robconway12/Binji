@@ -28,6 +28,10 @@
   width: 80%;
   text-align: center;
 }
+
+#search {
+  width: 20%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
