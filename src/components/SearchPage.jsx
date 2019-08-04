@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "../App.css";
-import { program } from "@babel/types";
 import SearchForm from "./SearchForm";
 
-class MainPage extends Component {
+class SearchPage extends Component {
   // Setting the component's initial state
   state = {
     query: "",
@@ -15,13 +14,13 @@ class MainPage extends Component {
       <>
         <h5>Add to Watch List</h5>
         <SearchForm />
-        <h4>Binji Watch List</h4>
+        <h4>Search Results</h4>
         <table className="table mx-auto">
           <thead>
             <tr>
               <th>TMDB ID</th>
+              <th>Media Type</th>
               <th>Title</th>
-              {/* <th>Genre</th>  */}
               <th>Release Date</th>
               <th>Cover Art</th>
               <th>Summary</th>
@@ -33,9 +32,8 @@ class MainPage extends Component {
             {/* React code to map through database info */}
             <tr>
               <td>{program.progID}</td>
+              <td>{program.media_type}</td>
               <td>{program.title}</td>
-              {/* <td>{program.genre}</td>  */}
-
               <td>{program.year}</td>
               <td>
                 <img src={program.imgURL} alt="" />
@@ -58,4 +56,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+export default SearchPage;
