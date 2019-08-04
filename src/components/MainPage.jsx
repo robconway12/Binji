@@ -18,7 +18,8 @@ function MainPage() {
                      {/* <th>Genre</th>  */}
                     <th>Release Date</th>
                     <th>Cover Art</th>
-                    <th>Overview</th>
+                    <th>Summary</th>
+                    <th>Delete?</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,10 +33,10 @@ function MainPage() {
                         <td>
                             <img src={program.imgURL} alt=""/>
                         </td>
-
-                        <td solspan="2" >
+                        <td>{program.overview}</td>
+                        <td >
                             
-                            <a href="/title/delete/:" id={program.progID} class ="btn btn-danger">Delete</a>
+                            <a href="/title/delete/:" id={program.progID} class ="btn btn-danger deleteBtn">Delete</a>
                         </td>
                         
                     </tr>

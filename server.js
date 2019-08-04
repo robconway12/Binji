@@ -288,44 +288,6 @@ app.post('/title/add', function(request, response){
     }); 
 });
 
-
-
-//Display form to edit movie entry
-app.get('/title/edit/:progId', function(request, response){
-    dbConnection.query("SELECT * FROM programs WHERE progId = '" + request.params.progId + "'", 
-    function(err,result){
-        response.render('pages/edit-title.ejs',{
-            siteTitle : siteTitle,
-            pageTitle : "Editing Movie : " + result[0].title,
-            movie : result
-        });
-    });
-});
-
-
-
-//Update movie entry with edited data
-app.post('/title/edit/:progId', function(request, response){
-    var query = "UPDATE programs SET";
-    query += " title = '" + request.body.title + "',";
-    // query += " genre = 'UNIMPLEMENTED',";
-    query += " rating = '" + request.body.rating + "',";
-    query += " year = '" + request.body.release_date + "',";
-    query += " watched = '" + request.body.watched + "',";
-    query += " WHERE progId = " + request.body.progId + ";";
-    
-    console.log("[EDITING ENTRY] Query :\n" + query);
-    
-    dbConnection.query(query, function(err, result){
-        if(err) throw err;
-        if(result.affectedRows){
-            response.redirect(baseURL);   
-        }
-    });
-});
-
-
-
 //Delete movie entry from database
 app.get('/title/delete/:progId', function(request, response){
     
