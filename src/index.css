@@ -24,7 +24,7 @@ code {
   background-repeat: no-repeat;
   background-position-x: 50%;
   background-position-y: 30%;
-  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, (50, 50, 50, 0.8)z 0%, rgba(80, 80, 80, 0.2) );
+  /* background-image: radial-gradient(ellipse farthest-corner at 45px 45px, (50, 50, 50, 0.8)z 0%, rgba(80, 80, 80, 0.2) ); */
   /*background-image: linear-gradient(180deg,#14181c 0,#14181c 100px,#2c3440 101px);*/
   height: 100%;
 }
@@ -55,7 +55,7 @@ code {
 }
 
 body {
-  background-color: black;
+  background-color: #252525;
 }
 
 .navbar-nav{

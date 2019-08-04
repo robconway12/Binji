@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 
 const LandingPage = props => (
-  <div className="container"id="cover">
+  <div className="container" id="cover">
     <div className="row">
       <div className="hp-blurb">
         <img
