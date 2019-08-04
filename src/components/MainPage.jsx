@@ -11,7 +11,7 @@ function MainPage() {
         <br />
         <SearchForm />
 
-        <table class="table">
+        <table className="table">
             <thead>
                 <tr>
                     <th>TMDB ID</th>
@@ -37,7 +37,7 @@ function MainPage() {
                         <td>{program.overview}</td>
                         <td >
                             
-                            <a href="/title/delete/:" id={program.progID} class ="btn btn-danger deleteBtn">Delete</a>
+                            <a href="/title/delete/:" id={program.progID} className ="btn btn-danger deleteBtn">Delete</a>
                         </td>
                         
                     </tr>
