@@ -19,10 +19,15 @@ code {
   font-family: 'Oleo Script', cursive;
 }
 
+body {
+  background-color: black;
+}
+
 .navbar-nav{
   font-family: 'Saira Extra Condensed', sans-serif;
 }
 
 #footer-copywrite {
   font-family: 'Saira Extra Condensed', sans-serif;
+  color: azure;
 }
