@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script:700|Saira+Extra+Condensed:400,700&display=swap');
+
+#nav-BinjiLogo {
+  color: purple;
+  font-family: 'Oleo Script', cursive;
+}
+
+.navbar-nav{
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
