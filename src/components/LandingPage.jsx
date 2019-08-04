@@ -1,9 +1,20 @@
 import React from "react";
-import '../App.css';
+import "../App.css";
 
 const LandingPage = props => (
-  <div id="landing-container">
-      <img src={require('../images/TMDB-logo.png')} style={{ maxWidth: 400 }} className="float-right mb-2" alt="TMDB Logo" id="tmdb-logo"></img>
+  <div className="container"id="cover">
+    <div className="row">
+      <div className="hp-blurb">
+        <img
+          src={require("../images/logo-square-lg-white.png")}
+          style={{ maxWidth: 280 }}
+          className="img-fluid mx-auto"
+          alt="Binji TV Logo"
+          id="binji-logo"
+        />
+        <h1>Search it. Binge it. Share it. Betches.</h1>
+      </div>
+    </div>
   </div>
 );
 

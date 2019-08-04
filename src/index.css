@@ -14,6 +14,18 @@ code {
 
 @import url('https://fonts.googleapis.com/css?family=Oleo+Script:700|Saira+Extra+Condensed:400,700&display=swap');
 
+#cover {
+  margin: 0,auto;
+  background-color: #252525;
+  background-image: url("images/theater_purple_gradient.jpg");
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 30%;
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, (50, 50, 50, 0.8)z 0%, rgba(80, 80, 80, 0.2) );
+  /*background-image: linear-gradient(180deg,#14181c 0,#14181c 100px,#2c3440 101px);*/
+  height: 100%;
+}
+
 #nav-BinjiLogo {
   color: purple;
   font-family: 'Oleo Script', cursive;
@@ -57,4 +69,10 @@ th {
   font-family: 'Saira Extra Condensed', sans-serif;
   color: azure;
   font-size: 1.2em;
+}
+
+h1 {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  color: azure;
+  font-size: 4em;
 }

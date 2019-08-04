@@ -1,7 +1,19 @@
-import React from 'react'
-class Welcome extends React.Component {
+import React, { Component } from "react";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import LandingPage from "././components/LandingPage";
+import Footer from "././components/Footer";
+
+class Welcome extends Component {
   render() {
-    return <h1>Welcome</h1>
+    return (
+      <div>
+        <NavBar />
+        <LandingPage />
+        <Footer />
+      </div>
+    );
   }
 }
+
 export default Welcome
