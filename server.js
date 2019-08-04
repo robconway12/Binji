@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Setup Port for Heroku Deployment
-app.set('port', (process.env.PORT || 8080 ));
+app.set('port', (process.env.PORT || 8889 ));
 
 // Import all JavaScript and CSS files for application
 // app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));

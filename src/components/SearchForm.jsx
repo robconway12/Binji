@@ -26,11 +26,11 @@ class SearchForm extends Component {
           axios.get(url)
             .then(response => {
               let data = {
-                results: response.data,
+                results: response.data.results
               };
-              console.log(data);
               
-              this.setState(data);
+              this.setState(data.results);
+              console.log(data.results);
             })
             .catch(error => console.log(error));
 
@@ -56,6 +56,7 @@ class SearchForm extends Component {
         </button>
       </div>
     </form>
+    
     );
   };
 }
