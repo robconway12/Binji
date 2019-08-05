@@ -12,7 +12,7 @@ const NavBar = props => (
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav">
         <li className="nav-item"><Link to={'/app'} className="nav-link" id="nav-search">Search</Link></li>
-        <li className="nav-item"><Link to={'/watchlist'} className="nav-link" id="nav-watchlist">Watch List</Link></li>
+        <li className="nav-item"><Link to={'/list'} className="nav-link" id="nav-watchlist">Watch List</Link></li>
     </ul>
   </div>
 </nav>
