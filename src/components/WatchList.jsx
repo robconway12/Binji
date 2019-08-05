@@ -1,6 +1,6 @@
 // This page is the Watch List db results
 
-import React from "react";
+import React, { Component } from "react";
 
 class WatchList extends React.Component {
   state = {

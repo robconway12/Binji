@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import SearchResultContainer from "./components/SearchResultContainer";
+import SearchPage from "./components/SearchPage";
 import Footer from "./components/Footer";
 
 class SearchResults extends Component {
@@ -9,7 +9,7 @@ class SearchResults extends Component {
     return (
       <div>
         <NavBar />
-        <SearchResultContainer />
+        <SearchPage />
         <Footer />
       </div>
     );

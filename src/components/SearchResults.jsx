@@ -1,6 +1,6 @@
 // This component will display the results from the API query
 
-import React from "react";
+import React, { Component } from "react";
 import "../App.css";
 
 class SearchResults extends Component {
