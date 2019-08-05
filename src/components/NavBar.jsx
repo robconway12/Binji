@@ -4,6 +4,7 @@ import '../App.css';
 
 
 const NavBar = props => (
+  <>
 <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav">
   <a className="navbar-brand" href="/" id="nav-BinjiLogo">Binji</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +28,7 @@ const NavBar = props => (
 <li className="nav-item"><Link to={'/'} className="nav-link"> Home </Link></li>
 <li className="nav-item"><Link to={'/app'} className="nav-link">Search</Link></li>
 <li className="nav-item"><Link to={'/watchlist'} className="nav-link">Watch List</Link></li>
-
+</>
 )
 
 export default NavBar;
