@@ -5,6 +5,7 @@ import "../App.css";
 
 class SearchResults extends Component {
   render() {
+    var program = "";
     return (
       <>
         <h4>Search Results</h4>

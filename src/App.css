@@ -40,3 +40,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.btn-xlg {
+  padding: 5px 38px;
+  font-size: 30px; 
+  line-height: normal;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+}
