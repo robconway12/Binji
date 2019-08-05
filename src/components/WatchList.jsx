@@ -32,7 +32,7 @@ class WatchList extends React.Component {
     return (
       <table className="table mx-auto">
         <thead>
-          <tr>
+         
             <th>TMDB ID</th>
             <th>Media Type</th>
             <th>Title</th>
@@ -41,8 +41,7 @@ class WatchList extends React.Component {
             <th>Cover Art</th>
             <th>Summary</th>
             <th>Delete</th>
-            <th />
-          </tr>
+            
         </thead>
         <tbody>
           {/* {props.results.map(props => ( */}
