@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 
 const LandingPage = props => (
+  <div class="container">
   <div className="container" id="cover">
     <div className="row">
       <div className="hp-blurb">
@@ -15,6 +16,7 @@ const LandingPage = props => (
         <h1>Search it. Binge it. Share it. Betches.</h1>
       </div>
     </div>
+  </div>
   </div>
 );
 
