@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("images/theater_purple_gradient.jpg");
+  background-size: cover;
 }
 
 h4, h5 {
@@ -54,9 +56,10 @@ code {
   background-color: darkred;
 }
 
-body {
-  background-image: url("images/theater_purple_gradient.jpg");
-  background-size: cover;
+.hp-blurb {
+  width: 100%;
+  text-align: center;
+  padding-top: 6%;
 }
 
 .navbar-nav{
