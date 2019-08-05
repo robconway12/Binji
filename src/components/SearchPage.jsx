@@ -15,9 +15,12 @@ class SearchPage extends Component {
   render() {
     return (
       <>
-        <h5>Add to Watch List</h5>
+      <div className="container">
+        <br/>
+        <h5 className="text-center add">Add to Watch List</h5>
         <SearchForm />
         <SearchResults />
+      </div>
       </>
     );
   }

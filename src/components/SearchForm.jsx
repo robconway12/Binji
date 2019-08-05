@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import "../App.css";
 class SearchForm extends Component {
   // Setting the component's initial state
   state = {
@@ -45,20 +45,20 @@ class SearchForm extends Component {
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-      <form>
-        <div className="form-group ml-4">
+      <form >
+        <div className="form-group ml-4 text-center">
           <input
             onChange={this.handleInputChange}
             value={this.search}
             name="search"
             type="text"
-            className="form-control"
+            className="form-control text-center"
             placeholder="Search for a Title"
             id="search"
           />
           <button
             onClick={this.handleFormSubmit}
-            className="btn btn-primary mt-3"
+            className="btn btn-primary mt-3 text-center"
           >
             Search
           </button>

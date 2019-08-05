@@ -50,3 +50,13 @@
      -moz-border-radius: 8px;
           border-radius: 8px;
 }
+
+.add {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 30px;
+}
+
+.searchResult {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 25px;
+}

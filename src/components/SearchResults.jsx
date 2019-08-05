@@ -8,7 +8,8 @@ class SearchResults extends Component {
     var program = "";
     return (
       <>
-        <h4>Search Results</h4>
+      
+        <h4 className="text-center searchResult">Search Results</h4>
         <table className="table mx-auto">
           <thead>
             <tr>
