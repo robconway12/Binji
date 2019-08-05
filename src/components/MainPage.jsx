@@ -2,9 +2,7 @@
 
 import React, { Component } from "react";
 import "../App.css";
-// import { program } from "@babel/types";
-import SearchForm from "./SearchForm";
-import ResultList from "./ResultList";
+import WatchList from "./WatchList";
 
 class MainPage extends Component {
   // Setting the component's initial state
@@ -17,7 +15,7 @@ class MainPage extends Component {
     return (
       <>
         <h4>Binji Watch List</h4>
-       <ResultList />
+       <WatchList />
       </>
     );
   }

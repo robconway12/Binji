@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import App from "./App";
 import Welcome from "./welcome";
-import WatchList from "./watchlist";
+import WatchList from "./watchList";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
