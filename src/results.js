@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import SearchPage from "./components/SearchPage";
 import Footer from "./components/Footer";
 
-class WatchList extends Component {
+class Results extends Component {
   render() {
     return (
       <div>
         <NavBar />
-        Watch List here
+        <SearchPage />
         <Footer />
       </div>
     );
   }
 }
 
-export default WatchList
+export default Results
