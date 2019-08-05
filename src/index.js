@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
-import App from "./App";
-import Welcome from "./welcome";
-import WatchList from "./watchlist";
+import Welcome from "./welcome";        //landing page with Binji welcome
+import App from "./App";                //search page (from API)
+import WatchList from "./watchList";    //watch list page (from SQL database)
+import SearchResults from "./searchResults"; //results of the search (from API)
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
@@ -13,6 +14,7 @@ const routing = (
     <div>
       <Route exact path="/" component={Welcome} />
       <Route path="/app" component={App} />
+      <Route path="/searchresults" component={SearchResults} />
       <Route path="/watchlist" component={WatchList} />
     </div>
   </Router>

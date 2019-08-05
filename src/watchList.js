@@ -8,7 +8,7 @@ class WatchList extends Component {
     return (
       <div>
         <NavBar />
-        Results here
+        Watch List here
         <Footer />
       </div>
     );

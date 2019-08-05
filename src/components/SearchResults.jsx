@@ -2,6 +2,7 @@
 
 import React from "react";
 import "../App.css";
+
 class SearchResults extends Component {
   render() {
     return (
