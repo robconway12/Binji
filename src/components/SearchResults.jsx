@@ -2,8 +2,20 @@
 
 import React, { Component } from "react";
 import "../App.css";
+import API from "../utils/API";
 
 class SearchResults extends Component {
+  state = {
+    search: "",
+    results: []
+  };
+
+  searchTMDB = query => {
+    API.search(query)
+      .then(res => this.setState({ results: res.data.data }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     var program = "";
     return (
@@ -11,16 +23,16 @@ class SearchResults extends Component {
         <h4>Search Results</h4>
         <table className="table mx-auto">
           <thead>
-            <tr>
+            
               <th>TMDB ID</th>
               <th>Media Type</th>
               <th>Title</th>
               <th>Release Date</th>
               <th>Cover Art</th>
               <th>Summary</th>
-              <th>Delete</th>
-              <th />
-            </tr>
+              <th>Add</th>
+              
+           
           </thead>
           <tbody>
             {/* React code to map through database info */}
@@ -37,7 +49,7 @@ class SearchResults extends Component {
                 <a
                   href="/title/add/:"
                   id={program.progID}
-                  className="btn deleteBtn"
+                  className="btn deleteBtn btn-primary"
                 >
                   Add to List
                 </a>

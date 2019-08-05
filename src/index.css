@@ -12,6 +12,12 @@ body {
 h4, h5 {
   color: white;
 }
+
+h4 {
+  text-align: center;
+  margin: auto;
+  line-height: 3rem;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -78,8 +84,21 @@ th {
   font-size: 1.2em;
 }
 
+tr {
+  background-color: #222;
+}
+
 h1 {
   font-family: 'Saira Extra Condensed', sans-serif;
   color: azure;
   font-size: 4em;
+}
+
+.table {
+  width: 80%;
+  text-align: center;
+}
+
+#search {
+  width: 20%;
 }
