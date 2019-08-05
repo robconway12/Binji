@@ -1,7 +1,19 @@
-import React from 'react'
-class SearchResults extends React.Component {
+import React, { Component } from "react";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import SearchResultContainer from "././components/SearchResultContainer";
+import Footer from "././components/Footer";
+
+class SearchResults extends Component {
   render() {
-    return <h1>SearchResults</h1>
+    return (
+      <div>
+        <NavBar />
+        <SearchResultContainer />
+        <Footer />
+      </div>
+    );
   }
 }
+
 export default SearchResults

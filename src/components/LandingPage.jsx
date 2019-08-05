@@ -13,7 +13,7 @@ const LandingPage = props => (
           alt="Binji TV Logo"
           id="binji-logo"
         />
-        <h1>Search it. Binge it. Share it. Betches.</h1>
+        <h1>Search it. Binge it. Share it, Betches.</h1>
       </div>
     </div>
   </div>
