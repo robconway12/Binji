@@ -1,12 +1,15 @@
+// This page is the Watch List db results
+
 import React from "react";
 
 function ResultList(props) {
   return (
-    <ul className="list-group">
+
          <table className="table mx-auto">
          <thead>
            <tr>
              <th>TMDB ID</th>
+             <th>Media Type</th>
              <th>Title</th>
              {/* <th>Genre</th>  */}
              <th>Release Date</th>
@@ -17,22 +20,23 @@ function ResultList(props) {
            </tr>
          </thead>
          <tbody>
-      {props.results.map(program => (
+      {/* {props.results.map(props => ( */}
            
            <tr>
-             <td>{program.progID}</td>
-             <td>{program.title}</td>
-             {/* <td>{program.genre}</td>  */}
+             <td>{props.progID}</td>
+             <td>{props.media_type}</td>
+             <td>{props.title}</td>
+             {/* <td>{props.genre}</td>  */}
 
-             <td>{program.year}</td>
+             <td>{props.year}</td>
              <td>
-               <img src={program.imgURL} alt="" />
+               <img src={props.imgURL} alt="" />
              </td>
-             <td>{program.overview}</td>
+             <td>{props.overview}</td>
              <td>
                <a
                  href="/title/delete/:"
-                 id={program.progID}
+                 id={props.progID}
                  className="btn btn-danger deleteBtn"
                >
                  Delete
@@ -40,10 +44,11 @@ function ResultList(props) {
              </td>
            </tr>
         
-        ))}
+        {/* )) */}
+        {/* } */}
         </tbody>
       </table>
-    </ul>
+
   );
 }
 
