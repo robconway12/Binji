@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import App from "./App";
 import Welcome from "./welcome";
-import SearchResults from "./searchResults";
+import WatchList from "./watchlist";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
@@ -13,7 +13,7 @@ const routing = (
     <div>
       <Route exact path="/" component={Welcome} />
       <Route path="/app" component={App} />
-      <Route path="/searchresults" component={SearchResults} />
+      <Route path="/watchlist" component={WatchList} />
     </div>
   </Router>
 );

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import SearchResultContainer from "././components/SearchResultContainer";
-import Footer from "././components/Footer";
+import SearchResultContainer from "./components/SearchResultContainer";
+import Footer from "./components/Footer";
 
 class SearchResults extends Component {
   render() {

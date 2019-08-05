@@ -1,5 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import '../App.css';
+
 
 const NavBar = props => (
 <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -21,6 +23,10 @@ const NavBar = props => (
     </ul>
   </div>
 </nav>
+
+<li className="nav-item"><Link to={'/'} className="nav-link"> Home </Link></li>
+<li className="nav-item"><Link to={'/app'} className="nav-link">Search</Link></li>
+<li className="nav-item"><Link to={'/watchlist'} className="nav-link">Watch List</Link></li>
 
 )
 
