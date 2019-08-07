@@ -57,10 +57,14 @@ code {
   border: 1px solid white;
 }
 
-.hp-blurb a:hover {
+.btn-primary:hover {
   background-color: white;
   border: 1px solid purple;
   color: purple;
+}
+
+.btn-primary:active { 
+  background-color: yellow;
 }
 
 /* .hp-blurb a:link {
