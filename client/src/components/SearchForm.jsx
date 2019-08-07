@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "../App.css";
 class SearchForm extends Component {
   // Setting the component's initial state
