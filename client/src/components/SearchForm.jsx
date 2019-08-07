@@ -20,7 +20,7 @@ class SearchForm extends Component {
           <br/>
           <button
             onClick={this.props.handleFormSubmit}
-            className="btn btn-primary mt-3 text-center"
+            className="btn btn-light btn-lg mt-3 text-center"
           >
             Search
           </button>

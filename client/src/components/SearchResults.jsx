@@ -48,7 +48,7 @@ class SearchResults extends Component {
                     <a
                       href={"http://localhost:8080/title/add/" + each.id}
                       id={each.id}
-                      className="btn deleteBtn btn-primary"
+                      className="btn deleteBtn btn-light"
                     >
                       Add
                     </a>
