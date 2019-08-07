@@ -18,6 +18,7 @@ class SearchForm extends Component {
             placeholder="Search for a Title"
             id="search"
           />
+          <br/>
           <button
             onClick={this.props.handleFormSubmit}
             className="btn btn-primary mt-3 text-center"
