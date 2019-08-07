@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("images/theater_purple_gradient.jpg");
+  background-image: url("images/theater_purple.jpg");
   background-size: cover;
 }
 
@@ -49,14 +49,31 @@ code {
 
 .btn {
   font-family: 'Saira Extra Condensed', sans-serif;
-  border-color: dimgray;
-  border-top-color: black;
-  border-left-color: black;
+  border: 1px solid purple;
 }
 
 .btn-primary {
   background-color: purple;
+  border: 1px solid white;
 }
+
+.hp-blurb a:hover {
+  background-color: white;
+  border: 1px solid purple;
+  color: purple;
+}
+
+/* .hp-blurb a:link {
+  background-color: white;
+  border: 1px solid purple;
+  color: purple;
+}
+
+.hp-blurb a:visited {
+  background-color: white;
+  border: 1px solid purple;
+  color: purple;
+} */
 
 .btn-danger {
   background-color: darkred;
