@@ -14,6 +14,9 @@ const LandingPage = props => (
           id="binji-logo"
         />
         <h1>Search it. Binge it. Share it, Betches.</h1>
+        <a className="btn btn-primary mt-3" href="/app">
+            Get Started
+        </a>
       </div>
     </div>
   </div>
