@@ -2,7 +2,6 @@
 
 import React, { Component } from "react";
 import "../App.css";
-import API from "../utils/API";
 
 class SearchResults extends Component {
 
@@ -35,7 +34,7 @@ class SearchResults extends Component {
                   <td>{each.overview}</td>
                   <td>
                     <a
-                      href={"/title/add/:" + each.id}
+                      href={"http://localhost:8080/title/add/" + each.id}
                       id={each.id}
                       className="btn deleteBtn btn-primary"
                     >

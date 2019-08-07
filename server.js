@@ -12,6 +12,7 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var Promise = require('promise');
 var app = express();
+var path = require('path');
 
 
 //Used for parsing form data
@@ -20,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Setup Port for Heroku Deployment
-app.set('port', (process.env.PORT || 8080 ));
+const port = process.env.PORT || 8080
+app.set('port', port);
 
 
 app.use(express.static(__dirname + '/client/build')); 
@@ -29,7 +31,7 @@ app.use(express.static(__dirname + '/client/build'));
 //Assign site constants
 // const siteTitle = "binji";
 // const baseURL = "/";
-const baseURL = "http://localhost:" + app.get('port') + "/";
+const baseURL = "http://localhost:" + port + "/";
 // const TMDB_API_KEY = "d03fc0e64d561bfed0fdc80a54d08b43"; //Oh no don't steal my api key!! D:
 // const TMDB_BasePoster = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
 
@@ -94,11 +96,6 @@ app.get("/data", function (req, res) {
     });
  })
 
-// Connect to Server
-app.listen(app.get('port'), function(){
-	console.log("Server listening on " + baseURL + " ...");
-});
-
 
 
 //Query the programs Table for all programs
@@ -135,10 +132,17 @@ function getprograms(){
 // }
 
 
+app.get("/watchlist", function(req, res) {
+    dbConnection.query("SELECT * from programs", function(
+      error, results
+    ) {
+      if (error) throw error;
+      res.send(results);
+    }); 
+  })
 
-
-//Load default page and list titles from mySQL DB
-// app.get('/', function (request, response){
+// // Load default page and list titles from mySQL DB
+// app.get('/list', function (request, response){
 //     console.log("Got to Index.");
 //     getprograms().then(function(rows){
 //         if(rows.length == 0){
@@ -201,35 +205,34 @@ function getprograms(){
 
 
 //Add selected title  to DB
-// app.post('/title/add/:progId', function(request, response){
-    
-//     var id = ("" + request.params.progId).substring(1, request.params.progId.length);
-//     console.log(id);
-//     TheMovieDB.movieInfo({id: id}, function(err, result){
-//         console.log(result);
-//         var query = "INSERT INTO programs (title, year, progID, description, poster, userID)";
-        
-//         userID = 1; 
-        
-//         query += " VALUES (";
-//             query += " '" + result.title + "',";
-//             query += " '" + result.release_date + "',";
-//             // query += " '" + result.media_type + "',";
-//             query += " '" + id + "',";
-//             query += " '" + result.overview + "',";
-//             query += " '" + result.poster_path + "',";
-//             query += " '" + userID + "'";
+app.get('/title/add/:progId', function(request, response){
+    // change to capture request body, grab appropriate information to post to db, then redirect to the list page
+    var id = ("" + request.params.progId).substring(1, request.params.progId.length);
+    console.log(id);
+    console.log(result);
 
-//         query += ")";
-        
-//         console.log("[ADDING ENTRY] Query  :\n" + query);
-        
-//         dbConnection.query(query, function(err, result){
-//             if(err) throw err;
-//             response.redirect(baseURL); 
-//         });
-//     });
-// });
+    var query = "INSERT INTO programs (title, year, progID, description, poster, userID)";
+    
+    userID = 1; 
+    
+    query += " VALUES (";
+        query += " '" + result.title + "',";
+        query += " '" + result.release_date + "',";
+        // query += " '" + result.media_type + "',";
+        query += " '" + id + "',";
+        query += " '" + result.overview + "',";
+        query += " '" + result.poster_path + "',";
+        query += " '" + userID + "'";
+
+    query += ")";
+    
+    console.log("[ADDING ENTRY] Query  :\n" + query);
+    
+    dbConnection.query(query, function(err, result){
+        if(err) throw err;
+        response.redirect(baseURL); 
+    });
+});
 
 
 
@@ -259,17 +262,30 @@ function getprograms(){
 //     }); 
 // });
 
-//Delete movie entry from database
-// app.get('/title/delete/:progId', function(request, response){
+// Delete movie entryfrom database
+// route should be app.remove('/title/:progId')
+app.get('/title/delete/:progId', function(request, response){
     
-//     console.log("[DELETING ENTRY] Deleted Item " + request.params.progId);
+    console.log("[DELETING ENTRY] Deleted Item " + request.params.progId);
     
-//     dbConnection.query("DELETE FROM programs WHERE progId='" + request.params.progId + "'", 
-//     function(err, result){
-//         if(err) throw err;
-//         if(result.affectedRows){
-//             console.log("[DELETING ENTRY] REDIRECTING]");
-//             response.redirect(baseURL);   
-//         }
-//     });
-// });
+    dbConnection.query("DELETE FROM programs WHERE progId='" + request.params.progId + "'", 
+    function(err, result){
+        if(err) throw err;
+        if(result.affectedRows){
+            console.log("[DELETING ENTRY] REDIRECTING]");
+            response.redirect(baseURL);   
+        }
+    });
+});
+
+
+ // Define any API routes before this runs
+ app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
+  
+// Connect to Server
+app.listen(app.get('port'), function(){
+	console.log("Server listening on " + baseURL + " ...");
+});
+
