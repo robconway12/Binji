@@ -15,7 +15,7 @@ const LandingPage = props => (
         />
         <h1>Search it. Binge it. Share it, Betches.</h1>
         <br/>
-        <a className="btn btn-primary btn-xlg" href="/app">
+        <a className="btn btn-light btn-xlg" href="/app">
             Get Started
         </a>
       </div>

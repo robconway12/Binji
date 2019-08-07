@@ -29,7 +29,7 @@ CREATE TABLE `programs` (
   `title` varchar(45) DEFAULT NULL,
   `genre` varchar(45) DEFAULT NULL,
   `year` varchar(20) DEFAULT NULL,
-  `mediaType` varchar(45) DEFAULT NULL,
+  `media_type` varchar(45) DEFAULT NULL,
   `userId` varchar(45) DEFAULT NULL,
   `description` blob,
   `poster` varchar(45) DEFAULT NULL,

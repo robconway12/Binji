@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "../App.css";
 class SearchForm extends Component {
   // Setting the component's initial state
@@ -18,9 +17,10 @@ class SearchForm extends Component {
             placeholder="Search for a Title"
             id="search"
           />
+          <br/>
           <button
             onClick={this.props.handleFormSubmit}
-            className="btn btn-primary mt-3 text-center"
+            className="btn btn-light btn-lg mt-3 text-center"
           >
             Search
           </button>

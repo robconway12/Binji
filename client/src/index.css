@@ -50,14 +50,15 @@ code {
 .btn {
   font-family: 'Saira Extra Condensed', sans-serif;
   border: 1px solid purple;
+  color: white;
 }
 
-.btn-primary {
+.btn-light {
   background-color: purple;
   border: 1px solid white;
 }
 
-.btn-primary:hover {
+.btn-light:hover {
   background-color: white;
   border: 1px solid purple;
   color: purple;
@@ -131,4 +132,9 @@ h1 {
 
 .poster {
   max-width: 150px;
+}
+
+.fas {
+  font-size: 2em;
+  color: azure;
 }
