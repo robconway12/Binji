@@ -5,7 +5,6 @@ import "../App.css";
 import API from "../utils/API";
 
 class SearchResults extends Component {
-
   render() {
     // var each = "";
     return (
@@ -18,19 +17,32 @@ class SearchResults extends Component {
             <th>Release Date</th>
             <th>Cover Art</th>
             <th>Summary</th>
-            <th>Add</th>
+            <th />
           </thead>
           <tbody>
             {/* React code to map through database info */}
             {this.props.results.map((each, index) => {
-              var imgBaseURL =  "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+              var imgBaseURL =
+                "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
               return (
                 <tr>
-                  <td>{each.media_type}</td>
-                  <td>{each.title}</td>
-                  <td>{each.release_date}</td>
+                  {each.media_type === "movie" ? (
+                    <td className="fas fa-film" />
+                  ) : (
+                    <td class="fas fa-tv" />
+                  )}
+                  {each.title ? <td>{each.title}</td> : <td>{each.name}</td>}
+                  {each.release_date ? (
+                    <td>{each.release_date}</td>
+                  ) : (
+                    <td>{each.first_air_date}</td>
+                  )}
                   <td>
-                    <img src={imgBaseURL + each.poster_path} alt="" className="poster" />
+                    <img
+                      src={imgBaseURL + each.poster_path}
+                      alt=""
+                      className="poster"
+                    />
                   </td>
                   <td>{each.overview}</td>
                   <td>
@@ -39,7 +51,7 @@ class SearchResults extends Component {
                       id={each.id}
                       className="btn deleteBtn btn-primary"
                     >
-                      Add to List
+                      Add
                     </a>
                   </td>
                 </tr>

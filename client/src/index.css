@@ -111,3 +111,8 @@ h1 {
 .poster {
   max-width: 150px;
 }
+
+.fas {
+  font-size: 2em;
+  color: azure;
+}
