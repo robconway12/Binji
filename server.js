@@ -17,6 +17,7 @@ var path = require('path');
 
 //Used for parsing form data
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 
@@ -96,42 +97,6 @@ app.get("/data", function (req, res) {
     });
  })
 
-
-
-//Query the programs Table for all programs
-function getprograms(){
-    return new Promise(function(resolve, reject){
-        dbConnection.query("SELECT * FROM programs ORDER BY progID DESC", function(err, rows, fields){
-            if(err){
-                console.log("Error loading from DB");
-                return reject(err);
-            }
-            else{
-                return resolve(rows);
-                console.log("something happened here");
-            }
-        });
-    });
-}
-
-
-
-//Load TMDB image path and overview using progId
-// function loadDataTMDB(progId){
-//     console.log("Fetching TMDB Data for progId: " + progId);
-//     return new Promise(function(resolve, reject){
-//         TheMovieDB.Info({id: progId}, function(err, result){
-//             if(err){
-//                 return reject(err);
-//             }
-//             else{
-//                 return resolve([(TMDB_BasePoster + result.poster_path), result.overview]);
-//             }
-//         });
-//     });
-// }
-
-
 app.get("/watchlist", function(req, res) {
     dbConnection.query("SELECT * from programs", function(
       error, results
@@ -141,126 +106,57 @@ app.get("/watchlist", function(req, res) {
     }); 
   })
 
-// // Load default page and list titles from mySQL DB
-// app.get('/list', function (request, response){
-//     console.log("Got to Index.");
-//     getprograms().then(function(rows){
-//         if(rows.length == 0){
-//             console.log("Table is empty. Rendering Page...");
-//             response.render('pages/index.ejs', {
-//                 siteTitle : siteTitle,
-//                 pageTitle : "programs",
-//                 programs : null
-//             });
-//         }
-//         else{
-//             console.log("Successfully loaded data from DB.");
-//             loadAllDataTMDB(rows).then(function(data, err){
-//                 if(err){
-//                     throw err;
-//                 }
-//                 else{
-//                     response.render('pages/index.ejs', {
-//                         siteTitle : siteTitle,
-//                         pageTitle : "programs",
-//                         programs : rows,
-//                         images : data[0],
-//                         overviews : data[1]
-//                     });
-//                 }
-//             }).catch(function(e){
-//                 console.log(e.stack);
-//             });
-//         }
-//     }).catch(function(e){
-//         console.log(e.stack);
-//     });
-// });
-
-
-
-//Display form to Search for Movie Entry to Add
-// app.get('/title/add', function (request, response){
-//     response.render('pages/add-title-search.ejs', {
-//         siteTitle : siteTitle,
-//         pageTitle : "Search For Movie",
-//         programs : null,
-//     });
-// });
-
-
-
-//Display form for quantity of selected title
-// app.get('/title/add/:progId', function(request, response){
-//     // console.log(response);
-//     TheMovieDB.movieInfo({id: request.params.progId}, function(err, result){
-//         response.render('pages/add-title.ejs', {
-//             siteTitle : siteTitle,
-//             pageTitle : "Add Selected Movie",
-//             TMDB_data : result,
-//         });
-//     });
-// });
-
-
-
 //Add selected title  to DB
-app.get('/title/add/:progId', function(request, response){
+app.post('/title/add', function(request, response){
     // change to capture request body, grab appropriate information to post to db, then redirect to the list page
-    var id = ("" + request.params.progId).substring(1, request.params.progId.length);
-    console.log(id);
+
+    const result = request.body;
     console.log(result);
 
-    var query = "INSERT INTO programs (title, year, progID, description, poster, userID)";
-    
+    var query = "INSERT INTO programs (title, year, progID, description, poster, userID, media_type, genre)";
+    var parameterizedQuery = `
+    INSERT INTO programs
+        (title, year, progID, description, poster, userID, media_type, genre)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
     userID = 1; 
     
-    query += " VALUES (";
-        query += " '" + result.title + "',";
-        query += " '" + result.release_date + "',";
-        // query += " '" + result.media_type + "',";
-        query += " '" + id + "',";
-        query += " '" + result.overview + "',";
-        query += " '" + result.poster_path + "',";
-        query += " '" + userID + "'";
+    // query += " VALUES (";
+    //     query += " '" + (result.title || result.name) + "',";
+    //     query += " '" + (result.release_date || result.first_air_date) + "',";
+    //     query += " '" + result.id + "',";
+    //     query += " '" + result.overview + "',";
+    //     query += " '" + result.poster_path + "',";
+    //     query += " '" + userID + "'";
+    //     query += " '" + result.media_type + "',";
+    //     query += " '" + result.genre + "',";
 
-    query += ")";
+    // query += ")";
+
+    const queryParams = [
+        (result.title || result.name),
+        (result.release_date || result.first_air_date),
+        result.id,
+        result.overview,
+        result.poster_path,
+        userID,
+        result.media_type,
+        result.genre
+    ]
+    console.log(queryParams);
     
     console.log("[ADDING ENTRY] Query  :\n" + query);
     
+    dbConnection.query(parameterizedQuery, queryParams, function(err, result){
+        if(err) throw err;
+        response.redirect("/list"); 
+    });
+    
     dbConnection.query(query, function(err, result){
         if(err) throw err;
-        response.redirect(baseURL); 
+        response.redirect("/list"); 
     });
 });
 
-
-
-//Search for entries of programs from TMDB
-// app.post('/title/add', function(request, response){
-    
-    /*NOTE: Due to limited queries/second from TMDB's API,
-        this will only show the first 20 entries. Implementing pages
-        would be a workaround for this.
-    */
-    
-//     TheMovieDB.searchMovie({query: request.body.title }, function(err, result){
-//         if(result != null && result.total_results >= 1){
-//             //console.log(res.results);
-//             console.log("[ADDING ENTRY] Found " + result.total_results + " results.");
-//             console.log("[ADDING ENTRY] Loading search results...");
-//             response.render('pages/add-title-search.ejs', {
-//                 siteTitle : siteTitle,
-//                 pageTitle : "Select Movie",
-//                 programs : result.results,
-//             });
-//         }
-//         else{
-//             console.log("[ADDING ENTRY] No search results found.");
-//             response.redirect(baseURL + 'title/add');
-//         }
-//     }); 
-// });
 
 // Delete movie entryfrom database
 // route should be app.remove('/title/:progId')
