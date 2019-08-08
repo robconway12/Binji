@@ -24,6 +24,25 @@ class SearchPage extends Component {
     });
   };
 
+  handleClick = event => {
+    event.preventDefault();
+    const {id} = event.target;
+
+    console.log(event.target);
+    console.log(this.state.results);
+
+    const matchingResult = this.state.results.find((result) => {
+      console.log(typeof result.id);
+      console.log(typeof id);
+      console.log(result.id === parseInt(id));
+      return result.id === parseInt(id);
+    })
+
+    console.log(matchingResult);
+
+    axios.post('/title/add', matchingResult)
+  }
+
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
@@ -62,7 +81,7 @@ class SearchPage extends Component {
         />
         <SearchResults 
           results={this.state.results}
-        
+          handleClick={this.handleClick}
         />
       </div>
       </>
