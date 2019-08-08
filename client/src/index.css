@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("images/theater_purple.jpg");
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 h4, h5 {
@@ -100,15 +102,15 @@ code {
   color: azure;
 }
 
-th {
-  font-family: 'Saira Extra Condensed', sans-serif;
-  color: azure;
-  font-size: 1.2em;
-}
-
 tr {
   color: white;
   background-color: #222;
+}
+tr:first-child {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  color: azure;
+  font-size: 1.2em;
+  background-color: rgba(34, 34, 34, 0);
 }
 
 td {
@@ -124,6 +126,7 @@ h1 {
 .table {
   width: 90%;
   text-align: center;
+  margin: 20px auto;
 }
 
 #search {

@@ -20,6 +20,8 @@ class WatchList extends React.Component {
 
   render() {
     return (
+      <>
+      <h4 className="text-center">Watch List</h4>
       <table className="table mx-auto">
         <tbody>
           <tr>
@@ -38,7 +40,7 @@ class WatchList extends React.Component {
                 {program.media_type === "movie" ? (
                   <td className="fas fa-film" />
                 ) : (
-                  <td class="fas fa-tv" />
+                  <td className="fas fa-tv" />
                 )}
 
                 <td>{program.title}</td>
@@ -54,7 +56,7 @@ class WatchList extends React.Component {
                 <td>
                   <button
                     id={program.progID}
-                    onClick={this.handleDelete}
+                    onClick={this.props.handleDelete}
                     className="btn btn-danger deleteBtn"
                   >
                     Delete
@@ -65,6 +67,7 @@ class WatchList extends React.Component {
           })}
         </tbody>
       </table>
+      </>
     );
   }
 }

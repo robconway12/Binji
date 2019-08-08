@@ -6,18 +6,22 @@ import WatchList from "./WatchList";
 
 class MainPage extends Component {
 
-  handleDelete = event => {
-    event.preventDefault();
-    alert("clicked");
-    const {id} = event.target;
+handleDelete = event => {
+  alert("Clicked!")
+}
+
+  // handleDelete = event => {
+    // event.preventDefault();
+    // alert("clicked");
+    // const {id} = event.target;
 
     // console.log(event.target);
     // console.log(this.state.results);
 
-    console.log(id);
+    // console.log(id);
 
     // axios.post('/title/delete', id)
-  }
+  // }
 
   render() {
     return (

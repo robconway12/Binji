@@ -32,15 +32,16 @@ class SearchPage extends Component {
     console.log(this.state.results);
 
     const matchingResult = this.state.results.find((result) => {
-      console.log(typeof result.id);
-      console.log(typeof id);
-      console.log(result.id === parseInt(id));
+
       return result.id === parseInt(id);
     })
 
     console.log(matchingResult);
 
     axios.post('/title/add', matchingResult)
+    alert("Program Added!");
+    
+    
   }
 
   handleFormSubmit = event => {
@@ -65,6 +66,7 @@ class SearchPage extends Component {
           results: response.data.results
         });
         console.log(this.state.results);
+
       })
       .catch(error => console.log(error));
   };
