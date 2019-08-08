@@ -47,8 +47,10 @@ class SearchResults extends Component {
                   <td>
                     <button
                       id={each.id}
+
                       onClick={this.props.handleClick}
                       className="btn deleteBtn btn-primary"
+
                     >
                       Add
                     </button>

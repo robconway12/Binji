@@ -50,18 +50,23 @@ code {
 .btn {
   font-family: 'Saira Extra Condensed', sans-serif;
   border: 1px solid purple;
+  color: white;
 }
 
-.btn-primary {
+.btn-light {
   background-color: purple;
   border: 1px solid white;
 }
 
-.hp-blurb a:hover {
+.btn-light:hover {
   background-color: white;
   border: 1px solid purple;
   color: purple;
 }
+
+/* .btn-primary:active { 
+  background-color: yellow;
+} */
 
 /* .hp-blurb a:link {
   background-color: white;
