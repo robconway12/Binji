@@ -28,7 +28,7 @@ class SearchResults extends Component {
                   {each.media_type === "movie" ? (
                     <td className="fas fa-film" />
                   ) : (
-                    <td class="fas fa-tv" />
+                    <td className="fas fa-tv" />
                   )}
                   {each.title ? <td>{each.title}</td> : <td>{each.name}</td>}
                   {each.release_date ? (

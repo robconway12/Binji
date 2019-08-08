@@ -111,26 +111,11 @@ app.post('/title/add', function(request, response){
     // change to capture request body, grab appropriate information to post to db, then redirect to the list page
 
     const result = request.body;
-    console.log(result);
-
     var query = "INSERT INTO programs (title, year, progID, description, poster, userID, media_type, genre)";
     var parameterizedQuery = `
     INSERT INTO programs
-        (title, year, progID, description, poster, userID, media_type, genre)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+        (title, year, progID, description, poster, userID, media_type, genre) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
     userID = 1; 
-    
-    // query += " VALUES (";
-    //     query += " '" + (result.title || result.name) + "',";
-    //     query += " '" + (result.release_date || result.first_air_date) + "',";
-    //     query += " '" + result.id + "',";
-    //     query += " '" + result.overview + "',";
-    //     query += " '" + result.poster_path + "',";
-    //     query += " '" + userID + "'";
-    //     query += " '" + result.media_type + "',";
-    //     query += " '" + result.genre + "',";
-
-    // query += ")";
 
     const queryParams = [
         (result.title || result.name),
@@ -142,19 +127,19 @@ app.post('/title/add', function(request, response){
         result.media_type,
         result.genre
     ]
-    console.log(queryParams);
+    console.log('params: ', queryParams);
     
-    console.log("[ADDING ENTRY] Query  :\n" + query);
+    console.log("[ADDING ENTRY] Query  :\n" + query + queryParams);
     
     dbConnection.query(parameterizedQuery, queryParams, function(err, result){
-        if(err) throw err;
         response.redirect("/list"); 
+        if(err) throw err;
     });
     
-    dbConnection.query(query, function(err, result){
-        if(err) throw err;
-        response.redirect("/list"); 
-    });
+    // dbConnection.query(query, function(err, result){
+    //     if(err) throw err;
+    //     response.redirect("/list"); 
+    // });
 });
 
 
