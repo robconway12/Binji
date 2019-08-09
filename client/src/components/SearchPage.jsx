@@ -24,6 +24,26 @@ class SearchPage extends Component {
     });
   };
 
+  handleClick = event => {
+    event.preventDefault();
+    const {id} = event.target;
+
+    console.log(event.target);
+    console.log(this.state.results);
+
+    const matchingResult = this.state.results.find((result) => {
+
+      return result.id === parseInt(id);
+    })
+
+    console.log(matchingResult);
+
+    axios.post('/title/add', matchingResult)
+    alert("Program Added!");
+    
+    
+  }
+
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
@@ -46,6 +66,7 @@ class SearchPage extends Component {
           results: response.data.results
         });
         console.log(this.state.results);
+
       })
       .catch(error => console.log(error));
   };
@@ -62,7 +83,7 @@ class SearchPage extends Component {
         />
         <SearchResults 
           results={this.state.results}
-        
+          handleClick={this.handleClick}
         />
       </div>
       </>
