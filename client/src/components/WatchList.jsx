@@ -10,6 +10,7 @@ class WatchList extends React.Component {
 
   // When this component mounts, query the db for watchlist
   componentDidMount() {
+    
     axios.get("/watchlist").then(response => {
       this.setState({
         results: response.data
@@ -18,6 +19,34 @@ class WatchList extends React.Component {
     });
   }
 
+  
+  // handleDelete = event => {
+  //   event.preventDefault();
+  //   const {id} = event.target;
+  //   axios.post('/title/delete', id)
+  // }
+
+  deleteMember(id){
+    var data = {
+        id: id
+    }
+    fetch("/title/delete", {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    }).then(function(response) {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+    }).then(function(data) {
+        if(data === "success"){
+           this.setState({msg: "Title has been deleted."});  
+        }
+    }).catch(function(err) {
+        console.log(err)
+    });
+}
   render() {
     return (
       <>
@@ -52,15 +81,16 @@ class WatchList extends React.Component {
                     className="poster"
                   />
                 </td>
-                <td>{program.description}</td>
+                <td className="desc">{program.description}</td>
                 <td>
-                  <button
+                  <div
                     id={program.progID}
-                    onClick={this.props.handleDelete}
+                    // onClick={this.handleDelete}
+                    onClick={() => this.deleteMember(this.id)}
                     className="btn btn-danger deleteBtn"
                   >
                     Delete
-                  </button>
+                  </div>
                 </td>
               </tr>
             );
@@ -71,9 +101,5 @@ class WatchList extends React.Component {
     );
   }
 }
-
-//     );
-//   }
-// }
 
 export default WatchList;
