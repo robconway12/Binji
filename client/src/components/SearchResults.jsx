@@ -43,7 +43,7 @@ class SearchResults extends Component {
                       className="poster"
                     />
                   </td>
-                  <td>{each.overview}</td>
+                  <td className="desc">{each.overview}</td>
                   <td>
                     <button
                       id={each.id}

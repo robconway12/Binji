@@ -129,6 +129,10 @@ h1 {
   margin: 20px auto;
 }
 
+.desc {
+  text-align: left;
+}
+
 #search {
   width: 20%;
 }

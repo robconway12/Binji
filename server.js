@@ -145,20 +145,26 @@ app.post('/title/add', function(request, response){
 
 // Delete movie entryfrom database
 // route should be app.remove('/title/:progId')
-app.get('/title/delete/:progId', function(request, response){
+// app.get('/title/delete/:id', function(request, response){
     
-    console.log("[DELETING ENTRY] Deleted Item " + request.params.progId);
+//     console.log("[DELETING ENTRY] Deleted Item " + request.params.progId);
     
-    dbConnection.query("DELETE FROM programs WHERE progId='" + request.params.progId + "'", 
-    function(err, result){
-        if(err) throw err;
-        if(result.affectedRows){
-            console.log("[DELETING ENTRY] REDIRECTING]");
-            response.redirect(baseURL);   
-        }
+//     dbConnection.query("DELETE FROM programs WHERE progId='" + request.params.progId + "'", 
+//     function(err, result){
+//         if(err) throw err;
+//         if(result.affectedRows){
+//             console.log("[DELETING ENTRY] REDIRECTING]");
+//             response.redirect(baseURL);   
+//         }
+//     });
+// });
+
+app.get('/title/delete/:id', function(req, res, next) {
+    res.locals.connection.query('DELETE from programs where id = '+req.body.id+'', function (error, results, fields) {
+        if(error) throw error;
+        res.send(JSON.stringify(results));
     });
 });
-
 
  // Define any API routes before this runs
  app.get("*", function(req, res) {
