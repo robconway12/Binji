@@ -25,10 +25,10 @@ class SearchResults extends Component {
                 "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
               return (
                 <tr key={each.id}>
-                  {each.media_type === "movie" ? (
-                    <td className="fas fa-film" />
-                  ) : (
+                  {each.media_type === "tv" ? (
                     <td className="fas fa-tv" />
+                    ) : (
+                      <td className="fas fa-film" />
                   )}
                   {each.title ? <td>{each.title}</td> : <td>{each.name}</td>}
                   {each.release_date ? (
