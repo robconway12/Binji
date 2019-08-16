@@ -15,11 +15,18 @@ var app = express();
 var path = require('path');
 
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 //Used for parsing form data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+var urlencodedParser = bodyParser.urlencoded({extended: true});
 
 //Setup Port for Heroku Deployment
 const port = process.env.PORT || 8080
@@ -35,9 +42,6 @@ app.use(express.static(__dirname + '/client/build'));
 const baseURL = "http://localhost:" + port + "/";
 // const TMDB_API_KEY = "d03fc0e64d561bfed0fdc80a54d08b43"; //Oh no don't steal my api key!! D:
 // const TMDB_BasePoster = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
-
-//Use TheMovieDB API to pull information about programs
-// const TheMovieDB = require('moviedb')(TMDB_API_KEY);
 
 
 
@@ -84,18 +88,18 @@ function handleDisconnect(){
     });
 }
 
-app.get("/data", function (req, res) { 
-    dbConnection.query("SELECT * FROM programs ORDER BY progID DESC", function(err, rows, fields){
-        if(err){
-            console.log("Error loading from DB");
-            return reject(err);
-        }
-        else{
-            res.send(rows);
-            console.log("rows: " + rows);
-        }
-    });
- })
+// app.get("/data", function (req, res) { 
+//     dbConnection.query("SELECT * FROM programs ORDER BY progID DESC", function(err, rows, fields){
+//         if(err){
+//             console.log("Error loading from DB");
+//             return reject(err);
+//         }
+//         else{
+//             res.send(rows);
+//             console.log("rows: " + rows);
+//         }
+//     });
+//  })
 
 app.get("/watchlist", function(req, res) {
     dbConnection.query("SELECT * from programs", function(
@@ -159,11 +163,16 @@ app.post('/title/add', function(request, response){
 //     });
 // });
 
-app.get('/title/delete/:id', function(req, res, next) {
-    res.locals.connection.query('DELETE from programs where id = '+req.body.id+'', function (error, results, fields) {
-        if(error) throw error;
-        res.send(JSON.stringify(results));
-    });
+app.get('/delete', urlencodedParser, (req, res) => {
+
+    ID = req.body;
+    console.log("req = ", ID);
+    return;
+    
+    // dbConnection.query('DELETE from programs where progID = '+req.body.id+'', function (error, results, fields) {
+    //     if(error) throw error;
+    //     res.send(JSON.stringify(results));
+    // });
 });
 
  // Define any API routes before this runs

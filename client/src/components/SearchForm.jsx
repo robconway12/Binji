@@ -9,6 +9,17 @@ class SearchForm extends Component {
     return (
       <form >
         <div className="form-group ml-4 text-center">
+        <label id="searchType">
+          <h4 className="text-center add">Select program type:</h4>
+          <select name="programType" value={this.value} onChange={this.props.handleInputChange}>
+            <option value="">Select One</option>
+            <option value="series">Series</option>
+            <option value="movie">Movie</option>
+            <option value="both">Both</option>
+            {/* <option value="podcast">Podcast</option> */}
+          </select>
+        </label>
+
           <input
             onChange={this.props.handleInputChange}
             name="search"
