@@ -2,6 +2,7 @@
 
 import React from "react";
 import axios from "axios";
+import { useTable, useSortBy } from 'react-table';
 
 class WatchList extends React.Component {
 
