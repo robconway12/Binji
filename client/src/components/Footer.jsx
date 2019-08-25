@@ -29,7 +29,8 @@ class Footer extends Component {
     return (
       <div className="fixed-bottom" id="footer-container">
        <div>
-         <button onClick={this.topFunction} id="myBtn" className="fal fa-caret-square-up" title="Go to top"></button>
+         <img src={require("../images/NicePng_top-arrow-png_2558201.png")} id="myBtn" onClick={this.topFunction} alt="Go to top"></img>
+         
          </div> 
          <div>
         <p id="footer-copyright" className="float-left img-fluid padding">
